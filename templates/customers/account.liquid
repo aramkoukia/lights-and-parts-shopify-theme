@@ -13,18 +13,15 @@
   <div>
     <div>
 
-        <ul>
+        {% comment %} <ul>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
-              <script>console.log("INSIDE LOOP");</script>
-              <script>console.log({{ field[0] }});</script>
-              <script>console.log({{ field[1] }});</script>
-
               {{ field | first }}: {{ field | last }}
             </li>
           {%- endfor -%}
         </ul>
+       {% endcomment %}
 
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
@@ -43,24 +40,24 @@
             <tbody role="rowgroup">
               {%- for order in customer.metafields.CustomerOrders -%}
                 <tr role="row">
-                  {% comment %} <td
+                  <td
                     id="RowOrder"
                     role="cell"
                     headers="ColumnOrder"
                     data-label="{{ 'customer.orders.order_number' | t }}"
                   >
                     <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
-                      {{ order.name }}
+                      {{ order[1].OrderId }}
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                    {{ order.created_at | time_tag: format: 'date' }}
+                    {{ order[1].OrderDate | time_tag: format: 'date' }}
                   </td>
                   <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
-                    {{ order.financial_status_label }}
+                    {{ order[1].Status }}
                   </td>
                   <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_price | money_with_currency }}</td> {% endcomment %}
+                    {{ order[1].Total | money_with_currency }}</td>
                 </tr>
               {%- endfor -%}
             </tbody>
