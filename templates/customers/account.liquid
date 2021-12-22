@@ -19,12 +19,22 @@
 
       <h2>Rendering Metafields</h2>
       <script>console.log("WHATS UP YO");</script>
+      <script>console.log({{ customer.metafields }});</script>
+      <script>console.log({{ customer.metafields.CustomerOrders }});</script>
+      <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
+      <script>console.log({{ 'customer.metafields' }});</script>
+
+      <script>console.log({{ customer.metafields | json  }});</script>
+      <script>console.log({{ customer.metafields.CustomerOrders | json  }});</script>
+      <script>console.log({{ 'customer.metafields.CustomerOrders' | json  }});</script>
+      <script>console.log({{ 'customer.metafields' | json  }});</script>
+
       {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
-              <script>console.log({{ field }});</script>
+              <script>console.log({{ field | json }});</script>
               <h1>HELLO</h1>
               {{ field | first }}: {{ field | last }}
             </li>
