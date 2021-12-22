@@ -340,9 +340,8 @@
               height="{{ section.settings.logo.height }}"
               alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
             >
-          {%- else -%}
-            <span class="h2">{{ shop.name }}</span>
           {%- endif -%}
+          <span class="h2">{{ shop.name }}</span>
         </a>
     {%- if request.page_type == 'index' -%}
       </h1>
