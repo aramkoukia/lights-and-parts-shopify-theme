@@ -14,10 +14,17 @@
 
   <div>
     <div>
+
+      <h2>Rendering Metafields</h2>
+      {%- if customer.metafields.CustomerOrders != blank -%}
+        <ul>
+          {%- for field in customer.metafields.CustomerOrders -%}
+            <li>{{ field | first }}: {{ field | last }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
       <h2>{{ 'customer.orders.title' | t }}</h2>
-
-      {{ customer.metafields.CustomerOrders.115399 }}
-
       <div id="customer_orders"></div>
 
       {% paginate customer.orders by 20 %}
