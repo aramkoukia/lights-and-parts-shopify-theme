@@ -18,6 +18,7 @@
     <div>
 
       <h2>Rendering Metafields</h2>
+      <script>console.log("WHATS UP YO");</script>
       {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
