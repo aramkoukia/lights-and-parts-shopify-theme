@@ -16,6 +16,8 @@
     <div>
       <h2>{{ 'customer.orders.title' | t }}</h2>
 
+      {{ customer.metafields.CustomerOrders.115399 }}
+
       <div id="customer_orders"></div>
 
       {% paginate customer.orders by 20 %}
