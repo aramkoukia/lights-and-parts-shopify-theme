@@ -30,13 +30,14 @@
       <script>console.log({{ 'customer.metafields'}});</script> {% endcomment %}
 
         <ul>
+                <script>console.log("METAFOIELDS");</script>
           <script>console.log({{ customer.metafields }});</script>
-          <script>console.log({{ customer.metafields | json }});</script>
+          <script>console.log("CUSTOMER ORDERS");</script>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
+              <script>console.log("INSIDE LOOP");</script>
               <script>console.log({{ field | json }});</script>
-              <h1>HELLO</h1>
               {{ field | first }}: {{ field | last }}
             </li>
           {%- endfor -%}
