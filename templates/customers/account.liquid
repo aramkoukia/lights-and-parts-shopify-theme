@@ -39,25 +39,24 @@
             </thead>
             <tbody role="rowgroup">
               {%- for field in customer.metafields.CustomerOrders -%}
-                <script>console.log({{ field[1] }});</script>
+                {% comment %} <script>console.log({{ field[1] }});</script> {% endcomment %}
                 <tr role="row">
                   <td
                     id="RowOrder"
                     role="cell"
                     headers="ColumnOrder"
-                    data-label="{{ 'customer.orders.order_number' | t }}"
                   >
-                    <a href="{{ order[1].OrderId }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: field[1].OrderId }}">
+                    <a href="{{ order[1].OrderId }}">
                       {{ field[1].OrderId }}
                     </a>
                   </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'field[1].OrderDate' }}">
+                  <td headers="RowOrder ColumnDate" role="cell">
                     {{ field[1].OrderDate | time_tag: format: 'date' }}
                   </td>
-                  <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'field[1].Status' }}">
+                  <td headers="RowOrder ColumnPayment" role="cell">
                     {{ field[1].Status }}
                   </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'field[1].Total' }}">
+                  <td headers="RowOrder ColumnTotal" role="cell">
                     {{ field[1].Total | money_with_currency }}</td>
                 </tr>
               {%- endfor -%}
