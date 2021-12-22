@@ -1,8 +1,4 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-{% comment %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ 'customer-orders.js' | asset_url }}" defer="defer"></script>
-{% endcomment %}
 <div class="customer account">
   <div>
     <h1>{{ 'customer.account.title' | t }}</h1>
@@ -17,27 +13,13 @@
   <div>
     <div>
 
-      <h2>Rendering Metafields</h2>
-      <script>console.log("WHATS UP YO");</script>
-      {% comment %} <script>console.log({{ customer.metafields }});</script>
-      <script>console.log({{ customer.metafields.CustomerOrders }});</script>
-      <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
-      <script>console.log({{ 'customer.metafields' }});</script>
-
-      <script>console.log({{ customer.metafields }});</script>
-      <script>console.log({{ customer.metafields.CustomerOrders }});</script>
-      <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
-      <script>console.log({{ 'customer.metafields'}});</script> {% endcomment %}
-
         <ul>
-                <script>console.log("METAFOIELDS");</script>
-          <script>console.log({{ customer.metafields }});</script>
-          <script>console.log("CUSTOMER ORDERS");</script>
-          <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
+          {% comment %} <script>console.log("METAFOIELDS");</script> {% endcomment %}
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
               <script>console.log("INSIDE LOOP");</script>
               <script>console.log({{ field | json }});</script>
+              {{ field | first }}: {{ field | last.OrderId }}
               {{ field | first }}: {{ field | last }}
             </li>
           {%- endfor -%}
@@ -46,8 +28,8 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-      {% paginate customer.orders by 20 %}
-        {%- if customer.orders.size > 0 -%}
+      {% paginate customer.metafields.CustomerOrders by 20 %}
+        {%- if customer.metafields.CustomerOrders.size > 0 -%}
           <table role="table" class="order-history">
             <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
             <thead role="rowgroup">
@@ -55,14 +37,13 @@
                 <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
                 <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
                 <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">{{ 'customer.orders.fulfillment_status' | t }}</th>
                 <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
               </tr>
             </thead>
             <tbody role="rowgroup">
-              {%- for order in customer.orders -%}
+              {%- for order in customer.metafields.CustomerOrders -%}
                 <tr role="row">
-                  <td
+                  {% comment %} <td
                     id="RowOrder"
                     role="cell"
                     headers="ColumnOrder"
@@ -78,11 +59,8 @@
                   <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
                     {{ order.financial_status_label }}
                   </td>
-                  <td headers="RowOrder ColumnFulfillment" role="cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
-                    {{ order.fulfillment_status_label }}
-                  </td>
                   <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_price | money_with_currency }}</td>
+                    {{ order.total_price | money_with_currency }}</td> {% endcomment %}
                 </tr>
               {%- endfor -%}
             </tbody>
