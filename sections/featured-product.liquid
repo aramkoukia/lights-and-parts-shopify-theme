@@ -229,8 +229,11 @@
                           value="{{ variant.id }}"
                         >
                           {{ variant.title }}
-                          {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-                          - {{ variant.price | money | strip_html }}
+
+                          {% comment %}
+                            {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                            - {{ variant.price | money | strip_html }}
+                          {% endcomment %}
                         </option>
                       {%- endfor -%}
                     </select>
@@ -261,6 +264,7 @@
                           class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                         >
+                            {% comment %}
                             <span>
                               {%- if product.selected_or_first_available_variant.available -%}
                                 {{ 'products.product.add_to_cart' | t }}
@@ -268,6 +272,7 @@
                                 {{ 'products.product.sold_out' | t }}
                               {%- endif -%}
                             </span>
+                            {% endcomment %}
                             <div class="loading-overlay__spinner hidden">
                               <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                                 <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>

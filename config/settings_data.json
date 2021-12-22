@@ -16,7 +16,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "+1(604) 559-5000 Toll Free : 1(888) 672-2627",
+              "text": "Phone: +1(604) 559-5000 - Toll Free : 1(888) 672-2627",
               "color_scheme": "accent-2",
               "link": ""
             }

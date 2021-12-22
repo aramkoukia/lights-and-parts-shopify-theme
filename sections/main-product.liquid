@@ -187,6 +187,7 @@
               {{ product.title | escape }}
             </h1>
           {%- when 'price' -%}
+            {% comment %}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
             </div>
@@ -200,6 +201,7 @@
                 {%- endif -%}
               </div>
             {%- endif -%}
+            {% endcomment %}
             <div {{ block.shopify_attributes }}>
               {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -232,6 +234,7 @@
                 </div>
               </details>
             </div>
+          {% comment %}
           {%- when 'quantity_selector' -%}
             <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
               <label class="form__label" for="Quantity-{{ section.id }}">
@@ -257,6 +260,7 @@
                 </button>
               </quantity-input>
             </div>
+          {% endcomment %}
           {%- when 'popup' -%}
               <modal-opener class="product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
                 <button id="ProductPopup-{{ block.id }}" class="product-popup-modal__button link" type="button" aria-haspopup="dialog">{{ block.settings.text | default: block.settings.page.title }}</button>
@@ -366,8 +370,11 @@
                         value="{{ variant.id }}"
                       >
                         {{ variant.title }}
-                        {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+
+                        {% comment %}
+                          {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
                         - {{ variant.price | money | strip_html }}
+                        {% endcomment %}
                       </option>
                     {%- endfor -%}
                   </select>
@@ -388,6 +395,7 @@
                   <span class="product-form__error-message"></span>
                 </div>
 
+              {% comment %}
                 {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                   <div class="product-form__buttons">
@@ -415,6 +423,7 @@
                     {%- endif -%}
                   </div>
                 {%- endform -%}
+              {% endcomment %}
               </product-form>
 
               {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
