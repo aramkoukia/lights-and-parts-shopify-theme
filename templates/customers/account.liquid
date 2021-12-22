@@ -46,18 +46,25 @@
                     role="cell"
                     headers="ColumnOrder"
                   >
-                    <a href="{{ order[1].OrderId }}">
+                    <a href="#">
                       {{ field[1].OrderId }}
+                      <script>console.log({{ field[1].OrderId }});</script>
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
                     {{ field[1].OrderDate | time_tag: format: 'date' }}
+                    {{ field[1].OrderDate }}
+                    {{ field[1].orderDate }}
                   </td>
                   <td headers="RowOrder ColumnPayment" role="cell">
                     {{ field[1].Status }}
                   </td>
                   <td headers="RowOrder ColumnTotal" role="cell">
-                    {{ field[1].Total | money_with_currency }}</td>
+                    {{ field[1].Total | money_with_currency }}
+                    {{ field[1].total | money_with_currency }}
+                    {{ field[1].total }}
+                    {{ field[1].Total }}
+                  </td>
                 </tr>
               {%- endfor -%}
             </tbody>
