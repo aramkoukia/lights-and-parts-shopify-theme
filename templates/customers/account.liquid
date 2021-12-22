@@ -20,8 +20,10 @@
       <h2>Rendering Metafields</h2>
       {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
+          <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
+              <script>console.log({{ field }});</script>
               <h1>HELLO</h1>
               {{ field | first }}: {{ field | last }}
             </li>
