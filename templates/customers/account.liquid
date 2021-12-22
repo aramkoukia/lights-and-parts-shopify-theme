@@ -24,10 +24,10 @@
       <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
       <script>console.log({{ 'customer.metafields' }});</script>
 
-      <script>console.log({{ customer.metafields | json  }});</script>
-      <script>console.log({{ customer.metafields.CustomerOrders | json  }});</script>
-      <script>console.log({{ 'customer.metafields.CustomerOrders' | json  }});</script>
-      <script>console.log({{ 'customer.metafields' | json  }});</script>
+      <script>console.log({{ customer.metafields }});</script>
+      <script>console.log({{ customer.metafields.CustomerOrders }});</script>
+      <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
+      <script>console.log({{ 'customer.metafields'}});</script>
 
       {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
