@@ -19,7 +19,7 @@
 
       <h2>Rendering Metafields</h2>
       <script>console.log("WHATS UP YO");</script>
-      <script>console.log({{ customer.metafields }});</script>
+      {% comment %} <script>console.log({{ customer.metafields }});</script>
       <script>console.log({{ customer.metafields.CustomerOrders }});</script>
       <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
       <script>console.log({{ 'customer.metafields' }});</script>
@@ -27,9 +27,8 @@
       <script>console.log({{ customer.metafields }});</script>
       <script>console.log({{ customer.metafields.CustomerOrders }});</script>
       <script>console.log({{ 'customer.metafields.CustomerOrders' }});</script>
-      <script>console.log({{ 'customer.metafields'}});</script>
+      <script>console.log({{ 'customer.metafields'}});</script> {% endcomment %}
 
-      {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
@@ -40,7 +39,6 @@
             </li>
           {%- endfor -%}
         </ul>
-      {%- endif -%}
 
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
