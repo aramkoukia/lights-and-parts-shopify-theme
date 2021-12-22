@@ -21,7 +21,10 @@
       {%- if customer.metafields.CustomerOrders != blank -%}
         <ul>
           {%- for field in customer.metafields.CustomerOrders -%}
-            <li>{{ field | first }}: {{ field | last }}</li>
+            <li>
+              <h1>HELLO</h1>
+              {{ field | first }}: {{ field | last }}
+            </li>
           {%- endfor -%}
         </ul>
       {%- endif -%}
