@@ -18,7 +18,8 @@
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
               <script>console.log("INSIDE LOOP");</script>
-              <script>console.log({{ field }});</script>
+              <script>console.log({{ field[0] }});</script>
+              <script>console.log({{ field[1] }});</script>
 
               {{ field | first }}: {{ field | last }}
             </li>
