@@ -30,6 +30,8 @@
       <script>console.log({{ 'customer.metafields'}});</script> {% endcomment %}
 
         <ul>
+          <script>console.log({{ customer.metafields }});</script>
+          <script>console.log({{ customer.metafields | json }});</script>
           <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
