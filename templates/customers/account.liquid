@@ -28,7 +28,6 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-      {% paginate customer.metafields.CustomerOrders by 20 %}
         {%- if customer.metafields.CustomerOrders.size > 0 -%}
           <table role="table" class="order-history">
             <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
@@ -69,7 +68,7 @@
           <p>{{ 'customer.orders.none' | t }}</p>
         {%- endif -%}
 
-        {%- if paginate.pages > 1 -%}
+        {% comment %} {%- if paginate.pages > 1 -%}
           {%- if paginate.parts.size > 0 -%}
               <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
                 <ul role="list">
@@ -110,7 +109,7 @@
               </nav>
           {%- endif -%}
         {%- endif -%}
-      {% endpaginate %}
+      {% endpaginate %} {% endcomment %}
     </div>
 
     <div>
