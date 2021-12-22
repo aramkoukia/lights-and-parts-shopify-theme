@@ -46,17 +46,17 @@
                     headers="ColumnOrder"
                     data-label="{{ 'customer.orders.order_number' | t }}"
                   >
-                    <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                    <a href="{{ order[1].OrderId }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order[1].OrderId }}">
                       {{ order[1].OrderId }}
                     </a>
                   </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'order[1].OrderDate' }}">
                     {{ order[1].OrderDate | time_tag: format: 'date' }}
                   </td>
-                  <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
+                  <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'order[1].Status' }}">
                     {{ order[1].Status }}
                   </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'order[1].Total' }}">
                     {{ order[1].Total | money_with_currency }}</td>
                 </tr>
               {%- endfor -%}
