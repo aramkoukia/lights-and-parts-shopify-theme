@@ -1,6 +1,8 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+{% comment %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ 'customer-orders.js' | asset_url }}" defer="defer"></script>
+{% endcomment %}
 <div class="customer account">
   <div>
     <h1>{{ 'customer.account.title' | t }}</h1>
