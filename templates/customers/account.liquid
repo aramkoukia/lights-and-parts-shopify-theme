@@ -14,12 +14,12 @@
     <div>
 
         <ul>
-          {% comment %} <script>console.log("METAFOIELDS");</script> {% endcomment %}
+          <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
           {%- for field in customer.metafields.CustomerOrders -%}
             <li>
               <script>console.log("INSIDE LOOP");</script>
-              <script>console.log({{ field | json }});</script>
-              {{ field | first }}: {{ field | last.OrderId }}
+              <script>console.log({{ field }});</script>
+
               {{ field | first }}: {{ field | last }}
             </li>
           {%- endfor -%}
