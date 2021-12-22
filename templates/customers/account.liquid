@@ -39,10 +39,9 @@
             </thead>
             <tbody role="rowgroup">
               {%- for field in customer.metafields.CustomerOrders -%}
-                <script>console.log({{ field[1].OrderId }});</script>
-                <script>console.log({{ field[1]."OrderId" }});</script>
-                <script>console.log({{ field[1]["OrderId"] }});</script>
-                <script>console.log({{ field[1]["OrderId"] }});</script>
+                <script>console.log({{ customer.metafields.field[0].OrderId }});</script>
+                <script>console.log({{ field[1] }});</script>
+
                 <script>console.log({{ field[1] }});</script>
                 <tr role="row">
                   <td
