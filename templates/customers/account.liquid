@@ -37,6 +37,7 @@
                 <th id="ColumnSubTotal" scope="col" role="columnheader">SUBTOTAL</th>
                 <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
                 <th id="ColumnPaidAmount" scope="col" role="columnheader">PAID AMOUNT</th>
+                <th id="ColumnPaymentType" scope="col" role="columnheader">PAYMENT TYPE</th>
                 <th id="ColumnDueDate" scope="col" role="columnheader">DUE DATE</th>
                 <th id="ColumnPoNumber" scope="col" role="columnheader">PO Number</th>
               </tr>
@@ -68,11 +69,14 @@
                   <td headers="RowOrder PaidAmount" role="cell">
                     {{ field[1].value.PaidAmount | money_with_currency }}
                   </td>
+                  <td headers="RowOrder PaymentType" role="cell">
+                    {{ field[1].value.PaymentType }}
+                  </td>
                   <td headers="RowOrder DueDate" role="cell">
-                    {{ field[1].value.DueDate | money_with_currency }}
+                    {{ field[1].value.DueDate | time_tag: format: 'date' }}
                   </td>
                   <td headers="RowOrder PONumber" role="cell">
-                    {{ field[1].value.PONumber | money_with_currency }}
+                    {{ field[1].value.PONumber }}
                   </td>
                 </tr>
               {%- endfor -%}
