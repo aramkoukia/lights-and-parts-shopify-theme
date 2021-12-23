@@ -45,6 +45,10 @@
                     <a href="/account/orderdetail/{{ field[1].value.OrderId }}">
                        {{ field[1].value.OrderId }}
                     </a>
+                    <a href="{{ routes.account_url }}{{ field[1].value.OrderId }}">
+                       {{ field[1].value.OrderId }}
+                    </a>
+
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
                     {{ field[1].value.OrderDate | time_tag: format: 'date' }}
