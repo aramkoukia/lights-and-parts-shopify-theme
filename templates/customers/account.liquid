@@ -15,76 +15,84 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-        {%- if customer.metafields.CustomerOrders.size > 0 -%}
-          <table role="table" class="order-history">
-            <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
-            <thead role="rowgroup">
-              <tr role="row">
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnSubTotal" scope="col" role="columnheader">SUBTOTAL</th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-                <th id="ColumnPaidAmount" scope="col" role="columnheader">PAID AMOUNT</th>
-                <th id="ColumnPaymentType" scope="col" role="columnheader">PAYMENT TYPE</th>
-                <th id="ColumnDueDate" scope="col" role="columnheader">DUE DATE</th>
-                <th id="ColumnPoNumber" scope="col" role="columnheader">PO Number</th>
-              </tr>
-            </thead>
-            <tbody role="rowgroup">
-              {%- for field in customer.metafields.CustomerOrders -%}
-                <tr role="row">
-                  <td
-                    id="RowOrder"
-                    role="cell"
-                    headers="ColumnOrder"
-                  >
-                    <a href="/account/orders/{{ field[1].value.OrderId }}">
-                       {{ field[1].value.OrderId }}
-                    </a>
-                    <a href="/account/order/{{ field[1].value.OrderId }}">
-                       {{ field[1].value.OrderId }}
-                    </a>
-                    <a href="/account/orderdetail/{{ field[1].value.OrderId }}">
-                       {{ field[1].value.OrderId }}
-                    </a>
-                    <a href="{{ routes.account_url }}/{{ field[1].value.OrderId }}">
-                       {{ field[1].value.OrderId }}
-                    </a>
-                    <a href="{{ account_addresses_url }}">
-                       {{ field[1].value.OrderId }}
-                    </a>
-                  </td>
-                  <td headers="RowOrder ColumnDate" role="cell">
-                    {{ field[1].value.OrderDate | time_tag: format: 'date' }}
-                  </td>
-                  <td headers="RowOrder ColumnPayment" role="cell">
-                    {{ field[1].value.Status }}
-                  </td>
-                  <td headers="RowOrder ColumnSubTotal" role="cell">
-                    {{ field[1].value.SubTotal | money_with_currency }}
-                  </td>
-                  <td headers="RowOrder ColumnTotal" role="cell">
-                    {{ field[1].value.Total | money_with_currency }}
-                  </td>
-                  <td headers="RowOrder PaidAmount" role="cell">
-                    {{ field[1].value.PaidAmount | money_with_currency }}
-                  </td>
-                  <td headers="RowOrder PaymentType" role="cell">
-                    {{ field[1].value.PaymentTypeName }}
-                  </td>
-                  <td headers="RowOrder DueDate" role="cell">
-                    {{ field[1].value.DueDate | time_tag: format: 'date' }}
-                  </td>
-                  <td headers="RowOrder PONumber" role="cell">
-                    {{ field[1].value.PoNumber }}
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
+        {%- if customer.metafields.CustomerApproval.Status == blank -%}
+          <p>{{ "In order to see your invoices you need to request for approval here." }}</p>
         {%- else -%}
-          <p>{{ 'customer.orders.none' | t }}</p>
+        {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
+          <p>{{ "Your access to invoices is pending approval." }}</p>
+        {%- else -%}
+        {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
+          {%- if customer.metafields.CustomerOrders.size > 0 -%}
+            <table role="table" class="order-history">
+              <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+                  <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
+                  <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+                  <th id="ColumnSubTotal" scope="col" role="columnheader">SUBTOTAL</th>
+                  <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                  <th id="ColumnPaidAmount" scope="col" role="columnheader">PAID AMOUNT</th>
+                  <th id="ColumnPaymentType" scope="col" role="columnheader">PAYMENT TYPE</th>
+                  <th id="ColumnDueDate" scope="col" role="columnheader">DUE DATE</th>
+                  <th id="ColumnPoNumber" scope="col" role="columnheader">PO Number</th>
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                {%- for field in customer.metafields.CustomerOrders -%}
+                  <tr role="row">
+                    <td
+                      id="RowOrder"
+                      role="cell"
+                      headers="ColumnOrder"
+                    >
+                      <a href="/account/orders/{{ field[1].value.OrderId }}">
+                        {{ field[1].value.OrderId }}
+                      </a>
+                      <a href="/account/order/{{ field[1].value.OrderId }}">
+                        {{ field[1].value.OrderId }}
+                      </a>
+                      <a href="/account/orderdetail/{{ field[1].value.OrderId }}">
+                        {{ field[1].value.OrderId }}
+                      </a>
+                      <a href="{{ routes.account_url }}/{{ field[1].value.OrderId }}">
+                        {{ field[1].value.OrderId }}
+                      </a>
+                      <a href="{{ account_addresses_url }}">
+                        {{ field[1].value.OrderId }}
+                      </a>
+                    </td>
+                    <td headers="RowOrder ColumnDate" role="cell">
+                      {{ field[1].value.OrderDate | time_tag: format: 'date' }}
+                    </td>
+                    <td headers="RowOrder ColumnPayment" role="cell">
+                      {{ field[1].value.Status }}
+                    </td>
+                    <td headers="RowOrder ColumnSubTotal" role="cell">
+                      {{ field[1].value.SubTotal | money_with_currency }}
+                    </td>
+                    <td headers="RowOrder ColumnTotal" role="cell">
+                      {{ field[1].value.Total | money_with_currency }}
+                    </td>
+                    <td headers="RowOrder PaidAmount" role="cell">
+                      {{ field[1].value.PaidAmount | money_with_currency }}
+                    </td>
+                    <td headers="RowOrder PaymentType" role="cell">
+                      {{ field[1].value.PaymentTypeName }}
+                    </td>
+                    <td headers="RowOrder DueDate" role="cell">
+                      {{ field[1].value.DueDate | time_tag: format: 'date' }}
+                    </td>
+                    <td headers="RowOrder PONumber" role="cell">
+                      {{ field[1].value.PoNumber }}
+                    </td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          {%- else -%}
+            <p>{{ 'customer.orders.none' | t }}</p>
+          {%- endif -%}
         {%- endif -%}
 
         {% comment %} {%- if paginate.pages > 1 -%}
