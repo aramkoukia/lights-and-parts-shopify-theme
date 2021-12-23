@@ -58,7 +58,6 @@
 
               {%- for field in customer.metafields.CustomerOrders -%}
                 <script>console.log({{ field[1] }});</script>
-                <script>console.log({{ field[1].value }});</script>
                 <tr role="row">
                   <td
                     id="RowOrder"
@@ -67,7 +66,7 @@
                   >
                     <a href="#">
                       <h1>HELLO</h1>
-                      {{ field[1].OrderId }}
+                      {{ field[1].value.OrderId }}
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
