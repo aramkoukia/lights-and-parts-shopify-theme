@@ -27,7 +27,7 @@
       <div id="customer_orders"></div>
 
       <script>console.log("value");</script>
-      <script>console.log({{ customer.metafields.CustomerOrders.order.value }});</script>
+      <script>console.log({{ customer.metafields.CustomerOrders.order.value.OrderId }});</script>
 
               {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
               {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
@@ -39,7 +39,7 @@
               {% for customerorder in customerorders %}
                 <h1>customerorder</h1>
                 <script>console.log({{ customerorder.value }});</script>
-                {{ customerorder.value.OrderId }}
+                {{ customerorder.OrderId }}
               {% endfor %}
 
         {%- if customer.metafields.CustomerOrders.size > 0 -%}
