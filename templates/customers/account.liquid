@@ -18,6 +18,8 @@
         {{ customer.metafields.CustomerApproval.Status }}
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
+          {{ customer.id }}
+          {{ customer.email }}
           <button type="button" name="RequestAccess" id="RequestAccess">
             Request Access
           </button>
