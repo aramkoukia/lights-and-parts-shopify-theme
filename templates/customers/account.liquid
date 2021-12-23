@@ -39,9 +39,14 @@
             </thead>
             <tbody role="rowgroup">
               <script>console.log({{ customer.metafields.order.OrderId }});</script>
-              {% assign customerorders = customer.metafields.CustomerOrders.value %}
+              {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
+              {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
+              {% for supplier in suppliers %}
+                <p>{{ supplier.name }}</p>
+                <p>{{ supplier.address }}</p>
+              {% endfor %} {% endcomment %}
 
-              {% for customerorder in customerorders.order %}
+              {% for customerorder in customerorders %}
                 <h1>HELLO</h1>
                 {{ customerorder.OrderId }}
               {% endfor %}
