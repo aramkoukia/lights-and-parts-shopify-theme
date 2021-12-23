@@ -15,10 +15,12 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-        <p>In order to see your invoices you need to request for approval here.</p>
         {{ customer.metafields.CustomerApproval.Status }}
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
+          <button type="button" class="newsletter-form__button field__button" name="commit" id="Request Access" aria-label="Request Access">
+            {% render 'icon-account' %}
+          </button>
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
           <p>Your access to invoices is pending approval.</p>
