@@ -39,7 +39,10 @@
                     role="cell"
                     headers="ColumnOrder"
                   >
-                    <a href="/account/orders/{{ field[1].value.OrderId }}">
+                    <a href="/account/order/{{ field[1].value.OrderId }}">
+                       {{ field[1].value.OrderId }}
+                    </a>
+                    <a href="/account/orderdetail/{{ field[1].value.OrderId }}">
                        {{ field[1].value.OrderId }}
                     </a>
                   </td>
