@@ -38,14 +38,15 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
+              <script>console.log({{ customer.metafields.order.OrderId }});</script>
               {% assign customerorders = customer.metafields.CustomerOrders %}
 
               {% for customerorder in customerorders.order %}
-                {{ customerorder.OrderId}}
+                <h1>HELLO</h1>
+                {{ customerorder.OrderId }}
               {% endfor %}
 
               {%- for field in customer.metafields.CustomerOrders -%}
-                <script>console.log({{ customer.metafields.order.OrderId }});</script>
                 <script>console.log({{ field[1] }});</script>
                 <tr role="row">
                   <td
@@ -54,10 +55,12 @@
                     headers="ColumnOrder"
                   >
                     <a href="#">
+                      <h1>HELLO</h1>
                       {{ field[1].OrderId }}
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
+                    {{ field[1] }}
                     {{ field[1].OrderDate | time_tag: format: 'date' }}
                     {{ field[1].OrderDate }}
                     {{ field[1].orderDate }}
