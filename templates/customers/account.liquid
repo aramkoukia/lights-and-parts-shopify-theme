@@ -26,22 +26,6 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-      <script>console.log("value");</script>
-      <script>console.log({{ customer.metafields.CustomerOrders.order.value.OrderId }});</script>
-
-              {% assign customerorders = customer.metafields.CustomerOrders %}
-              {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
-              {% for supplier in suppliers %}
-                <p>{{ supplier.name }}</p>
-                <p>{{ supplier.address }}</p>
-              {% endfor %} {% endcomment %}
-
-              {% for customerorder in customerorders %}
-                <h1>customerorder</h1>
-                <script>console.log({{ customerorder[1].value.OrderId }});</script>
-                {{ customerorder[1].value.OrderId }}
-              {% endfor %}
-
         {%- if customer.metafields.CustomerOrders.size > 0 -%}
           <table role="table" class="order-history">
             <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
@@ -57,7 +41,6 @@
               <script>console.log({{ customer.metafields.order.OrderId }});</script>
 
               {%- for field in customer.metafields.CustomerOrders -%}
-                <script>console.log({{ field[1] }});</script>
                 <tr role="row">
                   <td
                     id="RowOrder"
@@ -65,27 +48,17 @@
                     headers="ColumnOrder"
                   >
                     <a href="#">
-                      <h1>HELLO</h1>
                       {{ field[1].value.OrderId }}
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
-                    {{ field[1] }}
-                    {{ field[1].OrderDate | time_tag: format: 'date' }}
-                    {{ field[1].OrderDate }}
-                    {{ field[1].orderDate }}
-                    {{ field[1].orderdate }}
+                    {{ field[1].value.OrderDate | time_tag: format: 'date' }}
                   </td>
                   <td headers="RowOrder ColumnPayment" role="cell">
-                    {{ field[1].Status }}
-                    HI
+                    {{ field[1].value.Status }}
                   </td>
                   <td headers="RowOrder ColumnTotal" role="cell">
-                    {{ field[1].Total | money_with_currency }}
-                    {{ field[1].total | money_with_currency }}
-                    {{ field[1].total }}
-                    {{ field[1].Total }}
-                    YO
+                    {{ field[1].value.Total | money_with_currency }}
                   </td>
                 </tr>
               {%- endfor -%}
