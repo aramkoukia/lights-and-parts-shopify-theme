@@ -29,7 +29,7 @@
       <script>console.log("value");</script>
       <script>console.log({{ customer.metafields.CustomerOrders.order.value.OrderId }});</script>
 
-              {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
+              {% assign customerorders = customer.metafields.CustomerOrders %}
               {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
               {% for supplier in suppliers %}
                 <p>{{ supplier.name }}</p>
@@ -38,8 +38,8 @@
 
               {% for customerorder in customerorders %}
                 <h1>customerorder</h1>
-                <script>console.log({{ customerorder.value }});</script>
-                {{ customerorder.OrderId }}
+                <script>console.log({{ customerorder[1].value.OrderId }});</script>
+                {{ customerorder[1].value.OrderId }}
               {% endfor %}
 
         {%- if customer.metafields.CustomerOrders.size > 0 -%}
