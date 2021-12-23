@@ -15,13 +15,13 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-        <p>{{ "In order to see your invoices you need to request for approval here." }}</p>
+        <p>In order to see your invoices you need to request for approval here.</p>
 
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
-          <p>{{ "In order to see your invoices you need to request for approval here." }}</p>
+          <p>In order to see your invoices you need to request for approval here.</p>
         {%- else -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
-          <p>{{ "Your access to invoices is pending approval." }}</p>
+          <p>Your access to invoices is pending approval.</p>
         {%- else -%}
         {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
           {%- if customer.metafields.CustomerOrders.size > 0 -%}
