@@ -26,6 +26,19 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
+              {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
+              {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
+              {% for supplier in suppliers %}
+                <p>{{ supplier.name }}</p>
+                <p>{{ supplier.address }}</p>
+              {% endfor %} {% endcomment %}
+
+              {% for customerorder in customerorders %}
+                <h1>customerorder</h1>
+                <script>console.log({{ customerorder }});</script>
+                {{ customerorder.OrderId }}
+              {% endfor %}
+
         {%- if customer.metafields.CustomerOrders.size > 0 -%}
           <table role="table" class="order-history">
             <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
@@ -39,17 +52,6 @@
             </thead>
             <tbody role="rowgroup">
               <script>console.log({{ customer.metafields.order.OrderId }});</script>
-              {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
-              {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
-              {% for supplier in suppliers %}
-                <p>{{ supplier.name }}</p>
-                <p>{{ supplier.address }}</p>
-              {% endfor %} {% endcomment %}
-
-              {% for customerorder in customerorders %}
-                <h1>HELLO</h1>
-                {{ customerorder.OrderId }}
-              {% endfor %}
 
               {%- for field in customer.metafields.CustomerOrders -%}
                 <script>console.log({{ field[1] }});</script>
