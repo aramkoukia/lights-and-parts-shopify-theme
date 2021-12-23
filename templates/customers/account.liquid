@@ -18,8 +18,7 @@
         {{ customer.metafields.CustomerApproval.Status }}
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
-          <button type="button" class="newsletter-form__button field__button" name="commit" id="Request Access" aria-label="Request Access">
-            {% render 'icon-account' %}
+          <button type="button" name="RequestAccess" id="RequestAccess">
             Request Access
           </button>
         {%- endif -%}
