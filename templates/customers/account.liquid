@@ -24,6 +24,9 @@
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
           <p>Your access to invoices is pending approval.</p>
+          <button disabled type="button" class="newsletter-form__button field__button" name="commit" id="Request Access" aria-label="Request Access">
+            {% render 'icon-account' %}
+          </button>
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
           {%- if customer.metafields.CustomerOrders.size > 0 -%}
