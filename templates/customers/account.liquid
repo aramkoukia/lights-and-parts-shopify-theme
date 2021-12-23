@@ -97,7 +97,7 @@
           {%- endif -%}
         {%- endif -%}
 
-        {%- if paginate.pages > 1 -%}
+        {% comment %} {%- if paginate.pages > 1 -%}
           {%- if paginate.parts.size > 0 -%}
               <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
                 <ul role="list">
@@ -138,7 +138,7 @@
               </nav>
           {%- endif -%}
         {%- endif -%}
-      {% endpaginate %}
+      {% endpaginate %} {% endcomment %}
     </div>
 
     {% comment %} <div>
