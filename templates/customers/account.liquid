@@ -70,7 +70,7 @@
                     {{ field[1].value.PaidAmount | money_with_currency }}
                   </td>
                   <td headers="RowOrder PaymentType" role="cell">
-                    {{ field[1].value.PaymentType }}
+                    {{ field[1].value.PaymentTypeName }}
                   </td>
                   <td headers="RowOrder DueDate" role="cell">
                     {{ field[1].value.DueDate | time_tag: format: 'date' }}
