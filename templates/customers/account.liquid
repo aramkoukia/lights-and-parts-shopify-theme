@@ -36,6 +36,9 @@
                 <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
                 <th id="ColumnSubTotal" scope="col" role="columnheader">SUBTOTAL</th>
                 <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                <th id="ColumnPaidAmount" scope="col" role="columnheader">PAID AMOUNT</th>
+                <th id="ColumnDueDate" scope="col" role="columnheader">DUE DATE</th>
+                <th id="ColumnPoNumber" scope="col" role="columnheader">PO Number</th>
               </tr>
             </thead>
             <tbody role="rowgroup">
@@ -61,6 +64,15 @@
                   </td>
                   <td headers="RowOrder ColumnTotal" role="cell">
                     {{ field[1].value.Total | money_with_currency }}
+                  </td>
+                  <td headers="RowOrder PaidAmount" role="cell">
+                    {{ field[1].value.PaidAmount | money_with_currency }}
+                  </td>
+                  <td headers="RowOrder DueDate" role="cell">
+                    {{ field[1].value.DueDate | money_with_currency }}
+                  </td>
+                  <td headers="RowOrder PONumber" role="cell">
+                    {{ field[1].value.PONumber | money_with_currency }}
                   </td>
                 </tr>
               {%- endfor -%}
@@ -114,7 +126,7 @@
       {% endpaginate %} {% endcomment %}
     </div>
 
-    <div>
+    {% comment %} <div>
       <h2>{{ 'customer.account.details' | t }}</h2>
 
       {{ customer.default_address | format_address }}
@@ -122,7 +134,7 @@
       <a href="{{ routes.account_addresses_url }}">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
-    </div>
+    </div> {% endcomment %}
 
   </div>
 </div>
