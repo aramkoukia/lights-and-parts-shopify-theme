@@ -16,13 +16,13 @@
       <div id="customer_orders"></div>
 
         <p>In order to see your invoices you need to request for approval here.</p>
-
+        {{ customer.metafields.CustomerApproval.Status }}
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
-        {%- else -%}
+        {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
           <p>Your access to invoices is pending approval.</p>
-        {%- else -%}
+        {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
           {%- if customer.metafields.CustomerOrders.size > 0 -%}
             <table role="table" class="order-history">
