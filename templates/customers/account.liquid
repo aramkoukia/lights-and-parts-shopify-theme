@@ -39,7 +39,7 @@
             </thead>
             <tbody role="rowgroup">
               <script>console.log({{ customer.metafields.order.OrderId }});</script>
-              {% assign customerorders = customer.metafields.CustomerOrders %}
+              {% assign customerorders = customer.metafields.CustomerOrders.value %}
 
               {% for customerorder in customerorders.order %}
                 <h1>HELLO</h1>
@@ -64,6 +64,7 @@
                     {{ field[1].OrderDate | time_tag: format: 'date' }}
                     {{ field[1].OrderDate }}
                     {{ field[1].orderDate }}
+                    {{ field[1].orderdate }}
                   </td>
                   <td headers="RowOrder ColumnPayment" role="cell">
                     {{ field[1].Status }}
