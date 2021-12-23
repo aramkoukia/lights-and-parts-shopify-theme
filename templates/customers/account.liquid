@@ -35,11 +35,10 @@
                 <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
                 <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
                 <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                <th id="ColumnSub" scope="col" role="columnheader">{{ 'customer.orders.subtotal' | t }}</th>
               </tr>
             </thead>
             <tbody role="rowgroup">
-              <script>console.log({{ customer.metafields.order.OrderId }});</script>
-
               {%- for field in customer.metafields.CustomerOrders -%}
                 <tr role="row">
                   <td
@@ -56,6 +55,9 @@
                   </td>
                   <td headers="RowOrder ColumnPayment" role="cell">
                     {{ field[1].value.Status }}
+                  </td>
+                  <td headers="RowOrder ColumnSubTotal" role="cell">
+                    {{ field[1].value.SubTotal | money_with_currency }}
                   </td>
                   <td headers="RowOrder ColumnTotal" role="cell">
                     {{ field[1].value.Total | money_with_currency }}
