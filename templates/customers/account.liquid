@@ -38,10 +38,14 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
-              {%- for field in customer.metafields.CustomerOrders -%}
-                <script>console.log({{ customer.metafields.field[0].OrderId }});</script>
-                <script>console.log({{ field[1] }});</script>
+              {% assign customerorders = customer.metafields.CustomerOrders %}
 
+              {% for customerorder in customerorders.order %}
+                {{ customerorder.OrderId}}
+              {% endfor %}
+
+              {%- for field in customer.metafields.CustomerOrders -%}
+                <script>console.log({{ customer.metafields.order.OrderId }});</script>
                 <script>console.log({{ field[1] }});</script>
                 <tr role="row">
                   <td
