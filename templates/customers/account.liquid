@@ -12,17 +12,6 @@
 
   <div>
     <div>
-
-        {% comment %} <ul>
-          <script>console.log({{ customer.metafields.CustomerOrders | json }});</script>
-          {%- for field in customer.metafields.CustomerOrders -%}
-            <li>
-              {{ field | first }}: {{ field | last }}
-            </li>
-          {%- endfor -%}
-        </ul>
-       {% endcomment %}
-
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
@@ -50,8 +39,8 @@
                     role="cell"
                     headers="ColumnOrder"
                   >
-                    <a href="#">
-                      {{ field[1].value.OrderId }}
+                    <a href="/account/orders/{{ field[1].value.OrderId }}">
+                       {{ field[1].value.OrderId }}
                     </a>
                   </td>
                   <td headers="RowOrder ColumnDate" role="cell">
