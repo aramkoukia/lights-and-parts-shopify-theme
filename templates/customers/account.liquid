@@ -26,7 +26,10 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-              {% assign customerorders = customer.metafields.CustomerOrders.order %}
+      <script>console.log("value");</script>
+      <script>console.log({{ customer.metafields.CustomerOrders.order.value }});</script>
+
+              {% assign customerorders = customer.metafields.CustomerOrders.order.value %}
               {% comment %} {% assign suppliers = page.metafields.suppliers.order.value %}
               {% for supplier in suppliers %}
                 <p>{{ supplier.name }}</p>
@@ -55,6 +58,7 @@
 
               {%- for field in customer.metafields.CustomerOrders -%}
                 <script>console.log({{ field[1] }});</script>
+                <script>console.log({{ field[1].value }});</script>
                 <tr role="row">
                   <td
                     id="RowOrder"
