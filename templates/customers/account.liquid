@@ -20,12 +20,14 @@
           <p>In order to see your invoices you need to request for approval here.</p>
           <button type="button" class="newsletter-form__button field__button" name="commit" id="Request Access" aria-label="Request Access">
             {% render 'icon-account' %}
+            Request Access
           </button>
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
           <p>Your access to invoices is pending approval.</p>
           <button disabled type="button" class="newsletter-form__button field__button" name="commit" id="Request Access" aria-label="Request Access">
             {% render 'icon-account' %}
+            Request Access
           </button>
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
