@@ -179,10 +179,10 @@
   function requestAccess() {
     alert('clicked');
     const data = {
-        ShopifyCustomerId: {​{customer.id}},
-        Email: {​{customer.email}},
-        FirstName: {​{customer.first_name}},
-        LastName: {​{customer.last_name}},
+        ShopifyCustomerId: '{​{customer.id}}',
+        Email: '{​{customer.email}}',
+        FirstName: '{​{customer.first_name}}',
+        LastName: '{​{customer.last_name}}',
     };
 
     fetch('https://lightsandpartsapi.azurewebsites.net/api/shopify-storefront/request-access', {
