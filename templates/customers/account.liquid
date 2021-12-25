@@ -25,7 +25,7 @@
             <li>Last Name: {{ customer.last_name }}</li>
           </ul>
 
-          <button type="button" name="RequestAccess" id="RequestAccess">
+          <button onclick="requestAccess() type="button" name="RequestAccess" id="RequestAccess">
             Request Access
           </button>
         {%- endif -%}
@@ -41,7 +41,7 @@
             Request Access
           </button>
         {%- endif -%}
-        {% comment %} {%- if customer.metafields.CustomerApproval.Status == "Approved" -%} {% endcomment %}
+        {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
           {%- if customer.metafields.CustomerOrders.size > 0 -%}
             <table role="table" class="order-history">
               <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
@@ -115,7 +115,7 @@
           {%- else -%}
             <p>{{ 'customer.orders.none' | t }}</p>
           {%- endif -%}
-        {% comment %} {%- endif -%} {% endcomment %}
+        {%- endif -%}
 
         {% comment %} {%- if paginate.pages > 1 -%}
           {%- if paginate.parts.size > 0 -%}
@@ -173,3 +173,10 @@
 
   </div>
 </div>
+
+
+<script>
+  function requestAccess() {
+    alert('clicked')
+  }
+</script>
