@@ -187,7 +187,8 @@
 
     fetch('https://lightsandpartsapi.azurewebsites.net/api/shopify-storefront/request-access', {
       method: 'POST',
-      // credentials: 'include',
+      mode: 'cors',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
