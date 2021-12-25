@@ -177,6 +177,28 @@
 
 <script>
   function requestAccess() {
-    alert('clicked')
+    alert('clicked');
+    const data {
+        ShopifyCustomerId: {​{customer.id}},
+        Email: {​{customer.email}},
+        FirstName: {​{customer.first_name}},
+        LastName: {​{customer.last_name}},
+    };
+
+    fetch('https://lightsandpartsapi.azurewebsites.net/api/shopify-storefront/request-access', {
+      method: 'POST',
+      credentials: 'include'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
 </script>
