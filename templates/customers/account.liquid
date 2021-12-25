@@ -19,10 +19,10 @@
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
           <ul>
-            <li>Customer Id: {{ customer.id }}</li>
-            <li>Email: {{ customer.email }}</li>
-            <li>First Name: {{ customer.first_name }}</li>
-            <li>Last Name: {{ customer.last_name }}</li>
+            <li>Customer Id: <span id="customer_id">{{ customer.id }}</span></li>
+            <li>Email: <span id="customer_email">{{ customer.email }}</span></li>
+            <li>First Name: <span id="customer_first_name">{{ customer.first_name }}</span></li>
+            <li>Last Name: <span id="customer_last_name">{{ customer.last_name }}</span></li>
           </ul>
 
           <button onclick="requestAccess()" type="button" name="RequestAccess" id="RequestAccess">
@@ -37,11 +37,6 @@
             <li>First Name: {{ customer.first_name }}</li>
             <li>Last Name: {{ customer.last_name }}</li>
           </ul>
-          <input hidden id="customer_id", value="{{customer.id }}">
-          <input hidden id="customer_email", value="{{customer.email}}">
-          <input hidden id="customer_first_name", value="{{customer.first_name}}">
-          <input hidden id="customer_last_name", value="{{customer.last_name}}">
-
           <button disabled type="button" name="RequestAccess" id="RequestAccess">
             Request Access
           </button>
