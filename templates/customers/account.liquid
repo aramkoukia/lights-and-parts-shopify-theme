@@ -31,11 +31,17 @@
         {%- endif -%}
         {%- if customer.metafields.CustomerApproval.Status == "Pending" -%}
           <p>Your access to invoices is pending approval.</p>
+          <ul>
+            <li>Customer Id: {{ customer.id }}</li>
+            <li>Email: {{ customer.email }}</li>
+            <li>First Name: {{ customer.first_name }}</li>
+            <li>Last Name: {{ customer.last_name }}</li>
+          </ul>
           <button disabled type="button" name="RequestAccess" id="RequestAccess">
             Request Access
           </button>
         {%- endif -%}
-        {%- if customer.metafields.CustomerApproval.Status == "Approved" -%}
+        {% comment %} {%- if customer.metafields.CustomerApproval.Status == "Approved" -%} {% endcomment %}
           {%- if customer.metafields.CustomerOrders.size > 0 -%}
             <table role="table" class="order-history">
               <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
@@ -53,6 +59,7 @@
                 </tr>
               </thead>
               <tbody role="rowgroup">
+              {% paginate customer.metafields.CustomerOrders by 2 %}
                 {%- for field in customer.metafields.CustomerOrders -%}
                   <tr role="row">
                     <td
@@ -102,12 +109,13 @@
                     </td>
                   </tr>
                 {%- endfor -%}
+                {% endpaginate %}
               </tbody>
             </table>
           {%- else -%}
             <p>{{ 'customer.orders.none' | t }}</p>
           {%- endif -%}
-        {%- endif -%}
+        {% comment %} {%- endif -%} {% endcomment %}
 
         {% comment %} {%- if paginate.pages > 1 -%}
           {%- if paginate.parts.size > 0 -%}
