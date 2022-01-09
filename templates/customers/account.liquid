@@ -59,7 +59,7 @@
                 </tr>
               </thead>
               <tbody role="rowgroup">
-              {% paginate customer.metafields.CustomerOrders by 2 %}
+              {% comment %} {% paginate customer.['metafields'].CustomerOrders by 2 %} {% endcomment %}
                 {%- for field in customer.metafields.CustomerOrders -%}
                   <tr role="row">
                     <td
@@ -109,7 +109,7 @@
                     </td>
                   </tr>
                 {%- endfor -%}
-                {% endpaginate %}
+                {% comment %} {% endpaginate %} {% endcomment %}
               </tbody>
             </table>
           {%- else -%}
