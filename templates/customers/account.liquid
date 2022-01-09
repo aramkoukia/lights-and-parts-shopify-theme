@@ -15,7 +15,6 @@
       <h2>{{ 'customer.orders.title' | t }}</h2>
       <div id="customer_orders"></div>
 
-        {{ customer.metafields.CustomerApproval.Status }}
         {%- if customer.metafields.CustomerApproval.Status == blank -%}
           <p>In order to see your invoices you need to request for approval here.</p>
           <ul>
@@ -59,7 +58,6 @@
                 </tr>
               </thead>
               <tbody role="rowgroup">
-              {% comment %} {% paginate customer.['metafields'].CustomerOrders by 2 %} {% endcomment %}
                 {%- for field in customer.metafields.CustomerOrders -%}
                   <tr role="row">
                     <td
@@ -109,7 +107,6 @@
                     </td>
                   </tr>
                 {%- endfor -%}
-                {% comment %} {% endpaginate %} {% endcomment %}
               </tbody>
             </table>
           {%- else -%}
