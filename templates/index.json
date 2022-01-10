@@ -76,26 +76,27 @@
         "video": {
           "type": "video",
           "settings": {
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-            "description": "Describe the video",
-            "image_padding": false
+            "cover_image": "shopify:\/\/shop_images\/MVIMG_20180604_101026-1.jpg",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_CB_rD78iXI",
+            "description": "Linkable LED Linear Shop Light w\/ Motion Sensor",
+            "image_padding": true
           }
         },
         "product": {
           "type": "product",
           "settings": {
-            "product": "",
-            "second_image": false,
-            "image_padding": false,
-            "secondary_background": false
+            "product": "0-5w-15-led-g4-bulb-4000k-natural-white",
+            "second_image": true,
+            "image_padding": true,
+            "secondary_background": true
           }
         },
         "collection": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image_padding": false,
-            "color_scheme": "background-1"
+            "collection": "backlighting",
+            "image_padding": true,
+            "color_scheme": "accent-1"
           }
         }
       },
