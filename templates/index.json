@@ -114,8 +114,9 @@
     "video": {
       "type": "video",
       "settings": {
-        "heading": "Video",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "heading": "LED Strip Lights back lighting Panel with power supply",
+        "cover_image": "shopify:\/\/shop_images\/bklight-1.jpg",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=y4nclGvf2ic",
         "description": "",
         "full_width": false
       }
