@@ -68,8 +68,8 @@
           "footer-1": {
             "type": "text",
             "settings": {
-              "heading": "About Us",
-              "subtext": "<p>Vancouver: 3695 E 1st Ave, <br\/> Vancouver, BC V5M 1C2 <br\/> Abbotsford: 33228 S Fraser Way Abbotsford, BC, V2S 2B3 <br\/> Vancouver Phone: +1 (604) 559-5000 <br\/> Abbotsford Phone: +1 (604) 744-4474 <br\/> Fax: +1 (604) 559-5008 <br\/> Email:info@lightsandparts.com <\/p>"
+              "heading": "Locations",
+              "subtext": "<p>Vancouver: 695 E 1st Ave, <br\/>Vancouver, BC V5M 1C2 <br\/>Phone: +1 (604) 559-5000<br\/><\/p><p>Abbotsford: 3228 S Fraser Way<br\/>Abbotsford, BC, V2S 2B3<br\/>Phone: +1 (604) 744-4474 <br\/><br\/>Email: info@lightsandparts.com<br\/>Fax: +1 (604) 559-5008 <br\/> <\/p>"
             }
           }
         },
