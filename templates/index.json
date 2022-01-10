@@ -94,9 +94,9 @@
         "collection": {
           "type": "collection",
           "settings": {
-            "collection": "backlighting",
+            "collection": "spotlight",
             "image_padding": true,
-            "color_scheme": "accent-1"
+            "color_scheme": "inverse"
           }
         }
       },
